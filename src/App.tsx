@@ -4,6 +4,8 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import type { MarkdownTab, LayoutMode, ThemeMode } from './types';
 import { readStored, writeStored } from './storage';
+import LegalDialog from './LegalDialog';
+import type { LegalSection } from './LegalDialog';
 
 const welcome = `# A little space for big ideas.
 
@@ -84,6 +86,7 @@ export default function App() {
     return saved === 'dark' || saved === 'sepia' ? saved : 'light';
   });
   const [fontSize, setFontSize] = useState(() => Math.max(11, Math.min(24, Number(readStored('openmarkdown_font_size')) || 14)));
+  const [legalSection, setLegalSection] = useState<LegalSection | null>(null);
   const [saveFailed, setSaveFailed] = useState(false);
   const [notice, setNotice] = useState('');
   const [importing, setImporting] = useState(false);
@@ -202,7 +205,8 @@ export default function App() {
         <div className="workspace-footnote"><span>Less friction. More flow.</span><span>Made for the way you think. <span className="tiny-spark">✧</span></span></div>
       </main>
     </div>
-    <footer className="footer"><span>© {new Date().getFullYear()} <a href="https://linktr.ee/atmenterprise" target="_blank" rel="noreferrer">ATM Enterprise</a></span><span>Made with care. Open for everyone. <span>↗</span></span></footer>
+    <footer className="footer"><span>© {new Date().getFullYear()} <a href="https://atmenterprise.github.io/atm/" target="_blank" rel="noreferrer">ATM Enterprise</a></span><nav className="footer-legal" aria-label="Website information"><button onClick={() => setLegalSection('privacy')}>Privacy</button><button onClick={() => setLegalSection('disclaimer')}>Disclaimer</button></nav><span>Made with care. Open for everyone. <span>↗</span></span></footer>
+    <LegalDialog section={legalSection} onClose={() => setLegalSection(null)}/>
     {notice && <div className="toast" role="status">{notice}<button aria-label="Dismiss notification" onClick={() => setNotice('')}>×</button></div>}
     {dragging && <div className="drop-overlay"><div><Icon name="upload" size={42}/><h2>Make room for your ideas.</h2><p>Drop your Markdown files to open them together.</p><small>.md, .markdown, .txt · up to 2 MB per file</small></div></div>}
   </div>;
