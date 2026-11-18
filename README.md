@@ -25,6 +25,12 @@
 
 ---
 
+## Open local Markdown files
+
+Install OpenMarkdown from the address bar or browser menu in a desktop browser that supports web app file handling, such as Chrome or Microsoft Edge. Then right-click a `.md` or `.markdown` file in File Explorer (Windows), Finder (macOS), or your Linux file manager and choose **Open with → OpenMarkdown**. Approve the browser’s file access prompt if it appears. In Safari, use drag-and-drop or Upload files. OpenMarkdown reads the file locally and opens it in Preview. The site’s **Desktop setup** link has setup steps for each platform.
+
+---
+
 ## 🛠️ Tech Stack
 
 - **Core Framework**: [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)

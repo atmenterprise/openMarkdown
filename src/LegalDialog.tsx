@@ -31,6 +31,8 @@ export default function LegalDialog({ section, onClose }: { section: LegalSectio
         <p>openMarkdown is a public Markdown editor provided by ATM Enterprise. Here is how this app handles your documents.</p>
         <h3>Your documents stay in your browser</h3>
         <p>Files selected through the upload button or drag and drop are read locally. This app does not send your document contents to an application server.</p>
+        <h3>Share links</h3>
+        <p>A share link contains a copy of the document and its filename. Anyone with the link can read and forward that copy. Do not use share links for confidential or sensitive information.</p>
         <h3>Storage between visits</h3>
         <p>Open documents, filenames, edits, the selected document, and display preferences are stored in this browser’s local storage so you can return to them later. Older session storage may be read to preserve documents from a previous version.</p>
         <p>Close a document using its × button to remove it from the saved document list. To remove all stored app data, clear this website’s site data in your browser settings. Downloaded copies remain on your device until you delete them separately.</p>
